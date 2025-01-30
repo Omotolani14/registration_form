@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:registration_form/Screens/Details_Screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
   @override
@@ -52,10 +53,10 @@ class _RegistrationScreenState extends State<RegistrationScreen>{
             
           ),
           child: Text(
-            isRegistered?"Registraton Sucessful":"Register me",
+            isRegistered?"Registration Sucessful":"Register me",
             style:TextStyle(
               color: Colors.black,
-              fontSize: 20,
+              fontSize: 15,
             )
           ),
           
@@ -63,6 +64,21 @@ class _RegistrationScreenState extends State<RegistrationScreen>{
           
         ),
       ),
+         SizedBox(height: 30,),
+         if(isRegistered)
+         ElevatedButton(onPressed:(){
+          Navigator.push(context,MaterialPageRoute(builder: (context)=>DetailsScreen(
+            firstname: firstnameController.text,
+             lastname: lastnameController.text,
+              email: emailController.text
+            
+          )
+          )
+           );
+
+         }, child: Text("Veiw registration details")
+         )
+        
       ],
     ),
     ) ,
